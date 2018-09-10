@@ -12,13 +12,13 @@ jobs:
           MYSQL_HOST: 127.0.0.1
           MYSQL_DB: bpp
           MYSQL_USER: root
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_PASSWORD: root
-      - image: mysql:8.0
-        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin --innodb-large-prefix=true --innodb-file-format=Barracuda
+      - image: circleci/mysql:8.0.11
         environment:
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_DB: bpp
           MYSQL_USER: root
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_PASSWORD: root
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
