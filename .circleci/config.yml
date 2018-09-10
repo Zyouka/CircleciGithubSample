@@ -8,10 +8,17 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
-      - image: mysql:5.7
         environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_DATABASE: bpp
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_DB: bpp
+          MYSQL_USER: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_PASSWORD:
+      - image: mysql:8.0
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin --innodb-large-prefix=true --innodb-file-format=Barracuda
+        environment:
+          MYSQL_USER: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
