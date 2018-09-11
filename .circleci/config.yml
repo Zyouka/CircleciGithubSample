@@ -8,19 +8,14 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
-        environment:
-        - DB_HOST=127.0.0.1
-        - DB_PORT=3306
-        - DB_DATABASE=bpp
-        - DB_USERNAME=root
-        - DB_PASSWORD=root
       - image: circleci/mysql:8.0.11
         environment:
-        - MYSQL_ROOT_PASSWORD=root
-        - MYSQL_DATABASE=bpp
-        - MYSQL_USER=root
-        - MYSQL_PASSWORD=root
-        - MYSQL_HOST=127.0.0.1
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_ROOT_HOST: %
+          MYSQL_DATABASE: bpp
+          MYSQL_USER: root
+          MYSQL_PASSWORD: root
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
