@@ -20,6 +20,7 @@ jobs:
         - MYSQL_DATABASE=bpp
         - MYSQL_USER=root
         - MYSQL_PASSWORD=root
+        - MYSQL_HOST=127.0.0.1
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
